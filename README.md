@@ -9,3 +9,7 @@ MovieFlix — a small movie browsing/management app that uses OMDb for movie dat
 - Client-side sorting & pagination
 - Movie details modal (blurred background)
 - CRUD-ready backend for manual movie management
+
+- Backend: C# · ASP.NET Core · MongoDB Driver · MVVM Architecture
+- Frontend: React · TypeScript · Vite · TailwindCSS · Axios
+- Database: MongoDB (Atlas or Local)
