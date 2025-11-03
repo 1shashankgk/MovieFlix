@@ -1,0 +1,4 @@
+* text=auto
+*.cs diff=csharp
+*.ts diff=typescript
+*.tsx diff=typescriptreact
