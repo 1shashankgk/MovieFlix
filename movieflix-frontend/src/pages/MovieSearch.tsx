@@ -19,6 +19,7 @@ interface MovieDetails extends Movie {
 }
 
 const ITEMS_PER_PAGE_DEFAULT = 8;
+const API_BASE_URL = "https://movieflixwebapp-edg3dydaftgkbmgk.canadacentral-01.azurewebsites.net"
 
 const MovieSearch: React.FC = () => {
   const [search, setSearch] = useState("");
@@ -50,7 +51,7 @@ const MovieSearch: React.FC = () => {
     setCurrentPage(1);
 
     try {
-      const res = await axios.get("movieflixwebapp-edg3dydaftgkbmgk.canadacentral-01.azurewebsites.net", {
+      const res = await axios.get(API_BASE_URL, {
         params: {
           search,
           genre: genre || undefined,
