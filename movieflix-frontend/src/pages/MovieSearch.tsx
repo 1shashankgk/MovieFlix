@@ -50,7 +50,7 @@ const MovieSearch: React.FC = () => {
     setCurrentPage(1);
 
     try {
-      const res = await axios.get("http://localhost:5045/api/movies/search", {
+      const res = await axios.get("movieflixwebapp-edg3dydaftgkbmgk.canadacentral-01.azurewebsites.net", {
         params: {
           search,
           genre: genre || undefined,

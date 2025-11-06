@@ -4,6 +4,7 @@ using MovieFlixBackend.Infrastructure.Repositories;
 using MovieFlixBackend.Infrastructure.ExternalServices;
 using MovieFlixBackend.Application.Interfaces;
 using MovieFlixBackend.Application.Services;
+using Microsoft.AspNetCore.Mvc.ApplicationParts;
 using MovieFlixBackend.Presentation.Mappings;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -11,7 +12,16 @@ var builder = WebApplication.CreateBuilder(args);
 // Add services to the container.
 builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
-builder.Services.AddSwaggerGen();
+builder.Services.AddSwaggerGen(c =>
+{
+    c.SwaggerDoc("v1", new Microsoft.OpenApi.Models.OpenApiInfo
+    {
+        Title = "Movies API",
+        Version = "v1",
+        Description = "🎬 MovieFlix Movies Endpoints"
+    });
+});
+
 
 
 
@@ -26,19 +36,18 @@ builder.Services.AddCors(options =>
 {
     options.AddPolicy("AllowAll",
         policy => policy
-            .WithOrigins("https://movie-flix-again.vercel.app") // your Vercel frontend URL
+            .WithOrigins("https://movie-flix-again.vercel.app")
             .AllowAnyHeader()
             .AllowAnyMethod());
 });
 var app = builder.Build();
 
-// Configure the HTTP request pipeline.
-if (app.Environment.IsDevelopment())
+app.UseSwagger();
+app.UseSwaggerUI(c =>
 {
-    app.UseSwagger();
-    app.UseSwaggerUI();
-}
-
+    c.SwaggerEndpoint("/swagger/v1/swagger.json", "MovieFlixBackend v1");
+    c.RoutePrefix = string.Empty;
+});
 app.UseHttpsRedirection();
 
 /*var summaries = new[]
@@ -68,6 +77,19 @@ app.UseCors(policy =>
 app.UseCors("AllowAll");
 app.MapGet("/", () => Results.Ok("🎬 MovieFlix API is running! Visit /swagger for documentation."));
 app.MapControllers();
+
+var partManager = app.Services.GetRequiredService<ApplicationPartManager>();
+foreach (var part in partManager.ApplicationParts)
+{
+    Console.WriteLine($"📦 Loaded assembly part: {part.Name}");
+}
+
+Console.WriteLine("✅ Controllers discovered:");
+foreach (var feature in partManager.FeatureProviders)
+{
+    Console.WriteLine($"   👉 {feature.GetType().Name}");
+}
+
 app.Run();
 
 record WeatherForecast(DateOnly Date, int TemperatureC, string? Summary)
