@@ -1,4 +1,3 @@
-import React from "react";
 import MovieSearch from "./pages/MovieSearch";
 
 function App() {
