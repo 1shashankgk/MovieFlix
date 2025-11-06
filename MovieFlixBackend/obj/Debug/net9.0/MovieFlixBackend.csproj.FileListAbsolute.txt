@@ -1,5 +1,11 @@
+/Users/Shashank/Desktop/Files/MovieFlixBackend-MVVM/MovieFlixBackend/bin/Debug/net9.0/publish/web.config
 /Users/Shashank/Desktop/Files/MovieFlixBackend-MVVM/MovieFlixBackend/bin/Debug/net9.0/appsettings.Development.json
 /Users/Shashank/Desktop/Files/MovieFlixBackend-MVVM/MovieFlixBackend/bin/Debug/net9.0/appsettings.json
+/Users/Shashank/Desktop/Files/MovieFlixBackend-MVVM/MovieFlixBackend/bin/Debug/net9.0/publish/appsettings.Development.json
+/Users/Shashank/Desktop/Files/MovieFlixBackend-MVVM/MovieFlixBackend/bin/Debug/net9.0/publish/appsettings.json
+/Users/Shashank/Desktop/Files/MovieFlixBackend-MVVM/MovieFlixBackend/bin/Debug/net9.0/publish/MovieFlixBackend.deps.json
+/Users/Shashank/Desktop/Files/MovieFlixBackend-MVVM/MovieFlixBackend/bin/Debug/net9.0/publish/MovieFlixBackend.runtimeconfig.json
+/Users/Shashank/Desktop/Files/MovieFlixBackend-MVVM/MovieFlixBackend/bin/Debug/net9.0/publish/MovieFlixBackend.staticwebassets.endpoints.json
 /Users/Shashank/Desktop/Files/MovieFlixBackend-MVVM/MovieFlixBackend/bin/Debug/net9.0/MovieFlixBackend.staticwebassets.endpoints.json
 /Users/Shashank/Desktop/Files/MovieFlixBackend-MVVM/MovieFlixBackend/bin/Debug/net9.0/MovieFlixBackend
 /Users/Shashank/Desktop/Files/MovieFlixBackend-MVVM/MovieFlixBackend/bin/Debug/net9.0/MovieFlixBackend.deps.json

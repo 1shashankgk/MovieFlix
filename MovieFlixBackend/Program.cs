@@ -22,12 +22,13 @@ builder.Services.AddScoped<IMovieService, MovieService>();
 builder.Services.AddAutoMapper(typeof(AutoMapperProfile));
 
 builder.Services.AddHttpClient();
-builder.Services.AddCors(opt =>
+builder.Services.AddCors(options =>
 {
-    opt.AddPolicy("AllowAll", p => p
-        .AllowAnyOrigin()
-        .AllowAnyMethod()
-        .AllowAnyHeader());
+    options.AddPolicy("AllowAll",
+        policy => policy
+            .WithOrigins("https://movie-flix-again.vercel.app") // your Vercel frontend URL
+            .AllowAnyHeader()
+            .AllowAnyMethod());
 });
 var app = builder.Build();
 
@@ -61,10 +62,10 @@ app.MapGet("/weatherforecast", () =>
 
 app.UseCors(policy =>
     policy
-        .WithOrigins("https://movieflix.vercel.app")  // replace with your real frontend URL
+        .WithOrigins("https://movie-flix-again.vercel.app/")
         .AllowAnyHeader()
         .AllowAnyMethod());
-
+app.UseCors("AllowAll");
 app.MapGet("/", () => Results.Ok("🎬 MovieFlix API is running! Visit /swagger for documentation."));
 app.MapControllers();
 app.Run();

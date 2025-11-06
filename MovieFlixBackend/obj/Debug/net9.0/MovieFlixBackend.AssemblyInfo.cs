@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("MovieFlixBackend")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+4c22b37cc67ecb81800ae8c111153be38cd322ed")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+37e8c4fb1600c10926daca7fd8942a3c66d1a9b6")]
 [assembly: System.Reflection.AssemblyProductAttribute("MovieFlixBackend")]
 [assembly: System.Reflection.AssemblyTitleAttribute("MovieFlixBackend")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
