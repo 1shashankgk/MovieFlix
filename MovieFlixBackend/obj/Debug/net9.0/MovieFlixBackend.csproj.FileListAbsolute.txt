@@ -36,6 +36,7 @@
 /Users/Shashank/Desktop/Files/MovieFlixBackend-MVVM/MovieFlixBackend/obj/Debug/net9.0/MovieFlixBackend.csproj.CoreCompileInputs.cache
 /Users/Shashank/Desktop/Files/MovieFlixBackend-MVVM/MovieFlixBackend/obj/Debug/net9.0/MovieFlixBackend.MvcApplicationPartsAssemblyInfo.cs
 /Users/Shashank/Desktop/Files/MovieFlixBackend-MVVM/MovieFlixBackend/obj/Debug/net9.0/MovieFlixBackend.MvcApplicationPartsAssemblyInfo.cache
+/Users/Shashank/Desktop/Files/MovieFlixBackend-MVVM/MovieFlixBackend/obj/Debug/net9.0/MovieFlixBackend.sourcelink.json
 /Users/Shashank/Desktop/Files/MovieFlixBackend-MVVM/MovieFlixBackend/obj/Debug/net9.0/rjimswa.dswa.cache.json
 /Users/Shashank/Desktop/Files/MovieFlixBackend-MVVM/MovieFlixBackend/obj/Debug/net9.0/rjsmrazor.dswa.cache.json
 /Users/Shashank/Desktop/Files/MovieFlixBackend-MVVM/MovieFlixBackend/obj/Debug/net9.0/rjsmcshtml.dswa.cache.json

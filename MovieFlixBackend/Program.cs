@@ -59,7 +59,13 @@ app.MapGet("/weatherforecast", () =>
 })
 .WithName("GetWeatherForecast");*/
 
-app.UseCors("AllowAll");
+app.UseCors(policy =>
+    policy
+        .WithOrigins("https://movieflix.vercel.app")  // replace with your real frontend URL
+        .AllowAnyHeader()
+        .AllowAnyMethod());
+
+app.MapGet("/", () => Results.Ok("🎬 MovieFlix API is running! Visit /swagger for documentation."));
 app.MapControllers();
 app.Run();
 
