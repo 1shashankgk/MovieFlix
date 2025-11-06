@@ -36,7 +36,7 @@ builder.Services.AddCors(options =>
 {
     options.AddPolicy("AllowAll",
         policy => policy
-            .WithOrigins("https://movie-flix-again.vercel.app")
+            .AllowAnyOrigin()
             .AllowAnyHeader()
             .AllowAnyMethod());
 });
@@ -71,7 +71,7 @@ app.MapGet("/weatherforecast", () =>
 
 app.UseCors(policy =>
     policy
-        .WithOrigins("https://movie-flix-again.vercel.app/")
+        .AllowAnyOrigin()
         .AllowAnyHeader()
         .AllowAnyMethod());
 app.UseCors("AllowAll");

@@ -19,7 +19,7 @@ interface MovieDetails extends Movie {
 }
 
 const ITEMS_PER_PAGE_DEFAULT = 8;
-const API_BASE_URL = "https://movieflixwebapp-edg3dydaftgkbmgk.canadacentral-01.azurewebsites.net"
+const API_BASE_URL = "https://movieflixwebapp-edg3dydaftgkbmgk.canadacentral-01.azurewebsites.net/api/movies/search";
 
 const MovieSearch: React.FC = () => {
   const [search, setSearch] = useState("");
