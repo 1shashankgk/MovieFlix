@@ -57,6 +57,9 @@ namespace MovieFlixBackend.Infrastructure.ExternalServices
 
         public async Task<List<string>> SearchMovieIdsAsync(string search)
         {
+            Console.WriteLine($"🔍 OMDb request URL: https://www.omdbapi.com/?apikey={_apiKey}&s={search}");
+            Console.WriteLine($"🔍 API Key loaded: {_apiKey}");
+
             var url = $"https://www.omdbapi.com/?apikey={_apiKey}&s={Uri.EscapeDataString(search)}";
             var responseString = await _httpClient.GetStringAsync(url);
 

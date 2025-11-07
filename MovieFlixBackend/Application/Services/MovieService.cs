@@ -32,7 +32,8 @@ namespace MovieFlixBackend.Application.Services
     string? genre = null,
     int? year = null,
     double? minRating = null)
-{
+        {
+    
     if (string.IsNullOrWhiteSpace(search))
         return new();
 
@@ -64,28 +65,39 @@ namespace MovieFlixBackend.Application.Services
 
 private async Task<List<Movie>> FetchFromOmdbAndCacheAsync(string search)
 {
-    var ids = await _omdbClient.SearchMovieIdsAsync(search);
-    var result = new List<Movie>();
+            try
+            {
+                var apiKey = _config["Omdb:ApiKey"];
+                Console.WriteLine($"🔍 Azure DEBUG: Omdb:ApiKey = {apiKey}");
 
-    foreach (var id in ids)
-    {
-        var existing = await _movieRepository.FindByImdbIdAsync(id);
-        if (existing != null)
-        {
-            result.Add(existing);
-            continue;
-        }
+                var ids = await _omdbClient.SearchMovieIdsAsync(search);
+                var result = new List<Movie>();
 
-        var movie = await _omdbClient.GetMovieDetailsAsync(id);
-        if (movie != null)
-        {
-            movie.ImdbID = id;
-            await _movieRepository.UpsertAsync(movie);
-            result.Add(movie);
-        }
-    }
+                foreach (var id in ids)
+                {
+                    var existing = await _movieRepository.FindByImdbIdAsync(id);
+                    if (existing != null)
+                    {
+                        result.Add(existing);
+                        continue;
+                    }
 
-    return result;
+                    var movie = await _omdbClient.GetMovieDetailsAsync(id);
+                    if (movie != null)
+                    {
+                        movie.ImdbID = id;
+                        await _movieRepository.UpsertAsync(movie);
+                        result.Add(movie);
+                    }
+                }
+
+                return result;
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"❌ Azure ERROR: Failed to fetch from OMDb - {ex.Message}");
+                return new List<Movie>();
+            }
 }
 
 

@@ -28,6 +28,7 @@ builder.Services.AddSwaggerGen(c =>
 // Dependency Injection setup
 builder.Services.AddSingleton<IMovieRepository, MovieRepository>();
 builder.Services.AddScoped<OmdbClient>();
+builder.Services.AddHttpClient<OmdbClient>();
 builder.Services.AddScoped<IMovieService, MovieService>();
 builder.Services.AddAutoMapper(typeof(AutoMapperProfile));
 
@@ -74,6 +75,7 @@ app.UseCors(policy =>
         .AllowAnyOrigin()
         .AllowAnyHeader()
         .AllowAnyMethod());
+app.UseHttpsRedirection();
 app.UseCors("AllowAll");
 app.MapGet("/", () => Results.Ok("🎬 MovieFlix API is running! Visit /swagger for documentation."));
 app.MapControllers();

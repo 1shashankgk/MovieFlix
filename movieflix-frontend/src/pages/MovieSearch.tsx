@@ -15,11 +15,10 @@ interface MovieDetails extends Movie {
   actors?: string;
   plot?: string;
   runtime?: number;
-  // add any other fields your backend returns
 }
 
 const ITEMS_PER_PAGE_DEFAULT = 8;
-const API_BASE_URL = "https://movieflixwebapp-edg3dydaftgkbmgk.canadacentral-01.azurewebsites.net/api/movies/search";
+const API_BASE_URL = "https://movieflixwebapp-edg3dydaftgkbmgk.canadacentral-01.azurewebsites.net/api/movies/";
 
 const MovieSearch: React.FC = () => {
   const [search, setSearch] = useState("");
@@ -42,7 +41,7 @@ const MovieSearch: React.FC = () => {
   const [modalLoading, setModalLoading] = useState(false);
   const [modalOpen, setModalOpen] = useState(false);
 
-  // Search function (calls backend)
+  // Search function - fetch from backend
   const handleSearch = async () => {
     if (!search.trim()) return;
     setLoading(true);
@@ -51,7 +50,7 @@ const MovieSearch: React.FC = () => {
     setCurrentPage(1);
 
     try {
-      const res = await axios.get(API_BASE_URL, {
+      const res = await axios.get(`${API_BASE_URL}/search`, {
         params: {
           search,
           genre: genre || undefined,
@@ -128,7 +127,7 @@ const MovieSearch: React.FC = () => {
       try {
         // Ensure backend endpoint exists: /api/movies/getById?imdbId=ttXXXX
         const res = await axios.get(
-          `http://localhost:5045/api/movies/getById`,
+          `${API_BASE_URL}/getById`,
           { params: { imdbId: selectedMovieId } }
         );
         if (!cancelled) {
